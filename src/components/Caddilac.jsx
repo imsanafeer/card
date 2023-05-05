@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, Typography } from '@mui/material'
+import { Button, Card, CardActionArea, CardActions, CardContent, Grid, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Des.css'
@@ -12,26 +12,23 @@ const Caddilac = () => {
     })
     },[])
   return (
-    <div>
+    <div classname='div'>
+      <Grid container spacing={2}></Grid>
+       {value.map((data,ind)=>{
+        return(
        <Card className='card' sx={{}}>
       <CardActionArea>
         <CardContent>
-        {value.map((data,ind)=>{
-                    return(
-                        <div>
                         <Typography>First Name: {data.firstName}</Typography>
                         <Typography>Last Name: {data.lastName}</Typography>
-                        <Typography>Age: {data.age}</Typography>
-                        </div>
-                          )
-                })}
+                        <Typography>Age: {data.age}</Typography>       
                 </CardContent>
                 </CardActionArea>
               </Card>
-              
-       
+              )
+            })}
     </div>
   )
-}
+      }
 
 export default Caddilac
